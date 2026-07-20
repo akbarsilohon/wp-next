@@ -1,0 +1,82 @@
+.next_container{
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.next_heading{
+    position: relative;
+    background-color: #1E1E1E;
+    display: flex;
+    margin-bottom: 2rem;
+    padding: 25px;
+    align-items: center;
+    gap: 0.7rem;
+    color: #fff;
+}
+.next_image{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+.next_title{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: -10px;
+}
+.next_desc{
+    font-size: 12px;
+    color: #ccc8c8;
+}
+.next_ver{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    padding: 2px 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+    font-size: 10px;
+}
+.next_form{
+    display: block;
+    padding: 20px;
+}
+.next_group{
+    display: block;
+    margin-bottom: 1.5rem;
+}
+.next_label{
+    font-size: 13px;
+    display: block;
+    margin-bottom: 10px;
+    color: #1E1E1E;
+    font-weight: 600;
+}
+.next_input{
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px !important;
+}
+.next_textarea{
+    width: 100%;
+    max-width: 500px;
+    height: 150px;
+    border-radius: 8px !important;
+}
+.next_submit{
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #11569c;
+    color: #fff;
+}
