@@ -22,11 +22,11 @@ add_action('admin_menu', function(){
 
     add_submenu_page( 
         'next_js', 
-        'Next Option', 
-        'Next Option', 
+        'Insert HTML', 
+        'Insert HTML', 
         'manage_options', 
-        'next_opt', 
-        'next_options_page'
+        'next_insert', 
+        'next_insert_page'
     );
 });
 
@@ -57,9 +57,9 @@ function next_js_root(){
                 </div>
 
                 <div class="next_group">
-                    <label for="next_frontend_uri" class="next_main_logo">Logo</label>
+                    <label for="next_main_logo" class="next_label">Logo</label>
                     <input type="url" name="_next[header][logo]" id="next_main_logo" class="next_input" value="<?php echo $option['header']['logo'] ?? '' ?>" placeholder="Logo Website Here..."><br>
-                    <span class="changeLogo">Change Logo</span>
+                    <span class="changeLogo" id="next_logo">Change Logo</span>
                 </div>
 
                 <button type="submit" class="next_submit" name="save_main">Save Settings</button>
@@ -82,7 +82,8 @@ add_action( 'admin_init', function(){
     $data   = isset($_POST['_next']) ? wp_unslash($_POST['_next']) : [];
     $allowed_fields = [
         'frontend_uri',
-        'api_allowed'
+        'api_allowed',
+        'header'
     ];
 
     foreach ($allowed_fields as $field) {

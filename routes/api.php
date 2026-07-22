@@ -28,7 +28,7 @@ function next_params_api( WP_REST_Request $request ){
             ],
             [
                 'name'      =>  'Resep',
-                'url'       =>  '/kategori/resep',
+                'url'       =>  '/resep',
                 'icon'      =>  'fa-solid fa-mortar-pestle'
             ],
             [

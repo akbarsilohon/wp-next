@@ -80,3 +80,12 @@
     background-color: #11569c;
     color: #fff;
 }
+.changeLogo{
+    display: block;
+    background-color: #11569c;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    width: max-content;
+    cursor: pointer;
+}

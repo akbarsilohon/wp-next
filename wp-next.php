@@ -15,12 +15,14 @@ define('_NEXT_URI', plugin_dir_url( __FILE__ ));
 define('_NEXT_ICON', _NEXT_URI . 'images/icon.min.svg');
 
 require_once 'admin/index.php';
+require_once 'admin/insert.php';
 require_once 'routes/index.php';
 require_once 'routes/api.php';
+require_once 'class/recipe_class.php';
 
 
 add_action('admin_enqueue_scripts', function(){
-    $allowed = ['next_js', 'next_opt'];
+    $allowed = ['next_js', 'next_insert'];
     if(isset( $_GET['page'] ) && in_array( $_GET['page'], $allowed)){
         wp_enqueue_media();
         wp_enqueue_style(
