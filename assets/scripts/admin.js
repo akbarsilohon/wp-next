@@ -22,4 +22,29 @@ jQuery( document ).ready( function( $ ){
 
         nextMainLogo.open();
     });
+
+    // Footer Logo ----------------
+    let footerLogo;
+    $('#next_footer_logo_change').on('click', function( e ){
+        e.preventDefault();
+        if( footerLogo ){
+            footerLogo.open();
+            return;
+        }
+
+        footerLogo = wp.media({
+            title: 'Change footer logo',
+            button: {
+                text: 'Use Image'
+            },
+            multiple: false
+        });
+
+        footerLogo.on('select', function(){
+            const attachment = footerLogo.state().get('selection').first().toJSON();
+            $('#next_footer_logo').val( attachment.url );
+        });
+
+        footerLogo.open();
+    });
 });

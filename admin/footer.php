@@ -1,6 +1,6 @@
 <?php
 
-function next_insert_page(){
+function next_footer_page(){
     $option = get_option('_next', []); ?>
     <div class="wrap">
         <?php if (isset($_GET['saved'])): ?>
@@ -17,17 +17,19 @@ function next_insert_page(){
                 <span class="next_ver"><?php echo _NEXT_VER; ?></span>
             </div>
 
-            <form action="<?php echo admin_url() . 'admin.php?page=next_insert'; ?>" method="post" class="next_form">
+            <form action="<?php echo admin_url() . 'admin.php?page=next_footer'; ?>" method="post" class="next_form">
                 <div class="next_group">
-                    <label for="next_insert_header" class="next_label">Insert Header</label>
-                    <textarea name="_next[insert][header]" id="next_insert_header" class="next_textarea" placeholder="Insert Script header here.."><?php echo esc_textarea( $option['insert']['header'] ?? ''); ?></textarea>
-                </div>
-                <div class="next_group">
-                    <label for="next_insert_footer" class="next_label">Insert Header</label>
-                    <textarea name="_next[insert][footer]" id="next_insert_footer" class="next_textarea" placeholder="Insert Script Footer here.."><?php echo esc_textarea( $option['insert']['footer'] ?? ''); ?></textarea>
+                    <label for="next_footer_logo" class="next_label">Footer Logo</label>
+                    <input type="url" name="_next[footer][logo]" id="next_footer_logo" class="next_input" value="<?php echo $option['footer']['logo'] ?? '' ?>" placeholder="Logo Footer Website Here..."><br>
+                    <span class="changeLogo" id="next_footer_logo_change">Change Logo</span>
                 </div>
 
-                <button type="submit" class="next_submit" name="save_insert">Save Settings</button>
+                <div class="next_group">
+                    <label for="next_footer_text" class="next_label">Footer Text</label>
+                    <textarea name="_next[footer][text]" id="next_footer_text" class="next_textarea" placeholder="Footer Text Here.."><?php echo esc_textarea( $option['footer']['text'] ?? ''); ?></textarea>
+                </div>
+
+                <button type="submit" class="next_submit" name="save_footer">Save Settings</button>
             </form>
         </div>
     </div>
@@ -35,18 +37,18 @@ function next_insert_page(){
 }
 
 add_action('admin_init', function(){
-    if (!isset($_POST['save_insert'])) {
+    if (!isset($_POST['save_footer'])) {
         return;
     }
 
-    if (!isset($_GET['page']) || $_GET['page'] !== 'next_insert') {
+    if (!isset($_GET['page']) || $_GET['page'] !== 'next_footer') {
         return;
     }
 
     $option = get_option('_next', []);
     $data   = isset($_POST['_next']) ? wp_unslash($_POST['_next']) : [];
     $allowed_fields = [
-        'insert'
+        'footer'
     ];
 
     foreach ($allowed_fields as $field) {
@@ -56,6 +58,6 @@ add_action('admin_init', function(){
     }
 
     update_option('_next', array_merge($option, $data));
-    wp_safe_redirect(admin_url('admin.php?page=next_insert&saved=1'));
+    wp_safe_redirect(admin_url('admin.php?page=next_footer&saved=1'));
     exit;
 });

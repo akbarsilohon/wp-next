@@ -28,6 +28,15 @@ add_action('admin_menu', function(){
         'next_insert', 
         'next_insert_page'
     );
+
+    add_submenu_page( 
+        'next_js', 
+        'Site Footer', 
+        'Site Footer',
+        'manage_options', 
+        'next_footer', 
+        'next_footer_page'
+    );
 });
 
 function next_js_root(){

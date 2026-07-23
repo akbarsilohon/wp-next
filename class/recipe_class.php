@@ -44,7 +44,7 @@ class Recipe_Manager_Plugin {
             'public'             => true,
             'has_archive'        => true,
             'show_in_rest'       => true,
-            'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+            'supports'           => array('title', 'editor', 'thumbnail', 'excerpt', 'author'),
             'menu_icon'          => 'dashicons-food',
             'rewrite'            => array('slug' => 'recipes'),
         );
